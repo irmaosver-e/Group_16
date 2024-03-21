@@ -11,5 +11,7 @@ public class Controller {
     protected Controller(SharedContext sharedCont, View theView, AuthenticationService authServ,
                          EmailService emailServ){};
 
-    protected <T> int selectFromMenu(Collection<T> collection, String str){}
+    protected <T> int selectFromMenu(Collection<T> collection, String str){
+        return 0;
+    };
 }
