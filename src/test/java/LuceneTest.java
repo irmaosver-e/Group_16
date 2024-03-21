@@ -1,3 +1,6 @@
+import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
+
 public class LuceneTest {
     public void testCore(){
         Analyzer analyzer = new StandardAnalyzer();
