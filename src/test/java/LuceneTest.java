@@ -15,6 +15,7 @@ public class LuceneTest {
         iwriter.addDocument(doc);
         iwriter.close();
 
+
         // Now search the index:
         DirectoryReader ireader = DirectoryReader.open(directory);
         IndexSearcher isearcher = new IndexSearcher(ireader);
