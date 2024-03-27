@@ -3,8 +3,6 @@ package view;
 import model.FAQ;
 import model.FAQSection;
 import model.PageSearchResult;
-
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Scanner;
 
@@ -18,7 +16,7 @@ public class TextUserInterface implements View{
 
     @Override
     public boolean getYesNoInput(String input) {
-        return false;
+        return getInput(input).equalsIgnoreCase("yes");
     }
 
     public void displayInfo(String text) {
@@ -27,27 +25,26 @@ public class TextUserInterface implements View{
 
     @Override
     public void displaySuccess(String success) {
-
+        displayInfo(success);
     }
 
     @Override
     public void displayFailure(String fail) {
-
+        displayInfo(fail);
     }
 
     @Override
     public void displayWarning(String warning) {
-
+        displayInfo(warning);
     }
 
     @Override
     public void displayError(String error) {
-
+        displayInfo(error);
     }
 
     @Override
     public void displayException(Exception e) {
-
     }
 
     @Override

@@ -1,7 +1,5 @@
 package model;
 
-import view.View;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -11,14 +9,14 @@ public class SharedContext {
     public static String ADMIN_STAFF_EMAIL = "jack.tr@hindenburg.ac.uk";
     private Map<String, Collection<String>> faqTopicsUpdateSubscribers;
     private User currentUser;
-    private Collection<Page> pages;
+    private Map<String, Page> pages;
     private FAQ faq;
     private Collection<Inquiry> unAnsweredInquires;
 
     public SharedContext() {
         this.faqTopicsUpdateSubscribers = new HashMap<String, Collection<String>>();
         this.currentUser = new Guest();
-        this.pages = new ArrayList<Page>();
+        this.pages = new HashMap<>();
         this.faq = new FAQ();
         this.unAnsweredInquires = new ArrayList<Inquiry>();
     }
@@ -28,4 +26,7 @@ public class SharedContext {
     public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
     }
+
+    public void addPage(Page newPage){this.pages.put(newPage.getTitle(), newPage);}
+    public Map<String,Page> getPages(){return this.pages;}
 }
