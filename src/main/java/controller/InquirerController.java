@@ -2,13 +2,11 @@ package controller;
 
 import external.AuthenticationService;
 import external.EmailService;
-import model.FAQSection;
-import model.Page;
-import model.PageSearch;
-import model.SharedContext;
+import model.*;
 import view.View;
 
-import java.util.Iterator;
+import java.io.IOException;
+import java.util.Collection;
 import java.util.Map;
 
 
@@ -19,8 +17,7 @@ public class InquirerController extends Controller{
     }
 
     public void consultFAQ(){
-        FAQSection curretSecion = null;
-
+        FAQSection currentSession = null;
     }
 
     public void SearchPages()
@@ -31,48 +28,35 @@ public class InquirerController extends Controller{
         //currentUser role is null if user is a Guest
         if(sharedCont.getCurrentUser().getRole() == null)
         {
-            // Loop over the map using iterator
-            Iterator<Map.Entry<String, Page>> pagesIter = availablePages.entrySet().iterator();
-            while (pagesIter.hasNext()) {
-                Map.Entry<String, Page> entry = pagesIter.next();
-
-
-                // Check if the current entry meets the condition to be removed
-                if (entry.getKey().equals("key2")) {
-                    // Remove the current entry using the iterator's remove() method
-                    iterator.remove();
-                }
-            }
-
-            for(Map.Entry<String, Page> page : availablePages.entrySet())
+            for(Map.Entry<String, Page> page : sharedCont.getPages().entrySet())
             {
-                //checks is the page is private isPrivate
+                //checks if the page is private
                 if(page.getValue().isPrivate())
                 {
-                    availablePages.re
-                    availablePages.remove(page);
+                    availablePages.remove(page.getKey());
                 }
-
-                // Create an iterator
-                Iterator<Map.Entry<String, Page>> iterator = availablePages.entrySet().iterator();
-
             }
         }
 
-        PageSearch search = new PageSearch(availablePages);
-
-        //<<exception IOException()>>
-        if(IOException)
+        Collection<PageSearchResult> results;
+        try
         {
-            getView().displayInfo("exception txt here");
+            PageSearch pageSearch = new PageSearch(availablePages);
+
+            results = pageSearch.search(searchQuery);
+
+        }
+        catch(IOException e)
+        {
+            theView.displayException(e);
             return;
         }
-        else
-        {
 
+        if(results.size() > 4)
+        {
+            results = (Collection<PageSearchResult>) results.stream().limit(4);
         }
 
-
-
+        theView.displaySearchResults(results);
     }
 }

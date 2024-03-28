@@ -29,13 +29,12 @@ public class StaffController extends Controller{
     protected void respondToInquiry(Inquiry inquiry){
         //check user is logged in
 
-
         //should it have the same subject as the inquirer email?
         String subject=theView.getInput("Input your subject for this email.");
 
         String content = theView.getInput("Input the content of this email.");
 
-        emailServ.sendEmail(currentUser.email,
+        emailServ.sendEmail(sharedCont.getCurrentUser().getEmail(),
                 inquiry.getInquirerEmail(), subject, content);
         //system has to confirm the email was sent
 

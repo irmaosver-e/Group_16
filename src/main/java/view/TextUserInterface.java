@@ -45,6 +45,7 @@ public class TextUserInterface implements View{
 
     @Override
     public void displayException(Exception e) {
+        displayInfo(e.getMessage());
     }
 
     @Override
@@ -64,7 +65,10 @@ public class TextUserInterface implements View{
 
     @Override
     public void displaySearchResults(Collection<PageSearchResult> results) {
-
+        for(PageSearchResult result : results)
+        {
+            displayInfo(result.getFormattedContent()+"\n");
+        }
     }
 
 }
