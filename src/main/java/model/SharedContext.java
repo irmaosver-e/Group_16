@@ -11,14 +11,14 @@ public class SharedContext {
     private User currentUser;
     private Map<String, Page> pages;
     private FAQ faq;
-    private Collection<Inquiry> unAnsweredInquires;
+    private Collection<Inquiry> unAnsweredInquiries;
 
     public SharedContext() {
         this.faqTopicsUpdateSubscribers = new HashMap<String, Collection<String>>();
         this.currentUser = new Guest();
         this.pages = new HashMap<>();
         this.faq = new FAQ();
-        this.unAnsweredInquires = new ArrayList<Inquiry>();
+        this.unAnsweredInquiries = new ArrayList<Inquiry>();
     }
     public User getCurrentUser() {
         return currentUser;
@@ -30,5 +30,8 @@ public class SharedContext {
     public void addPage(Page newPage){this.pages.put(newPage.getTitle(), newPage);}
     public Map<String,Page> getPages(){return this.pages;}
 
-    public Collection<Inquiry> getUnAnsweredInquires(){return unAnsweredInquires;}
+    public Collection<Inquiry> getUnAnsweredInquiries(){return unAnsweredInquiries;}
+
+    public void setUnAnsweredInquiries(Collection<Inquiry> unAnsweredInquiries){this.unAnsweredInquiries=unAnsweredInquiries;
+    }
 }
