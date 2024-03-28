@@ -29,4 +29,6 @@ public class SharedContext {
 
     public void addPage(Page newPage){this.pages.put(newPage.getTitle(), newPage);}
     public Map<String,Page> getPages(){return this.pages;}
+
+    public Collection<Inquiry> getUnAnsweredInquires(){return unAnsweredInquires;}
 }
