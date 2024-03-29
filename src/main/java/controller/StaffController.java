@@ -51,4 +51,40 @@ public class StaffController extends Controller{
         }
 
     }
+
+    protected Inquiry viewInquiries(Collection<Inquiry> colInquiries) {
+
+        Collection<String> subjects = getInquiryTitles(colInquiries);
+        String[] subjects2 = subjects.toArray(new String[0]);
+
+        if (subjects.isEmpty()) {
+            System.out.println("There are currently no inquiries available.");
+            return null;
+        }
+        else {
+
+            int count = 0;
+            while (count < subjects2.length) {
+                String title = subjects2[count];
+                System.out.println(count + 1 + ") " + title);
+                count = count + 1;
+            }
+            Inquiry theInquiry=null;
+            String choice = theView.getInput("Please input the number of the " +
+                    "inquiry you would like to read.");
+            String chosenTitle = subjects2[Integer.parseInt(choice) - 1];
+            boolean response = false;
+            boolean response2 = false;
+            while (colInquiries.iterator().hasNext()) {
+                Inquiry inquiry = colInquiries.iterator().next();
+
+                if (chosenTitle.equals(inquiry.getSubject())) {
+                    theView.displayInquiry(inquiry);
+                    theInquiry = inquiry;
+                }
+
+            }
+            return theInquiry;
+        }
+    }
 }

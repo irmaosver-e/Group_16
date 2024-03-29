@@ -79,47 +79,6 @@ public class AdminStaffController extends StaffController{
             System.out.println("The email has successfully been redirected.");
     }
 
-    protected void viewInquiriesAdmin(Collection<Inquiry> colInquiries) {
-
-            Collection<String> subjects = getInquiryTitles(colInquiries);
-            String[] subjects2 = subjects.toArray(new String[0]);
-
-            if (subjects.isEmpty()) {
-                System.out.println("There are currently no inquiries available.");
-            } else {
-
-                int count = 0;
-                while (count < subjects2.length) {
-                    String title = subjects2[count];
-                    System.out.println(count + 1 + ") " + title);
-                    count = count + 1;
-                }
-
-                String choice = theView.getInput("Please input the number of the " +
-                        "inquiry you would like to read.");
-                String chosenTitle = subjects2[Integer.parseInt(choice) - 1];
-                boolean response = false;
-                boolean response2 = false;
-                while (colInquiries.iterator().hasNext()) {
-                    Inquiry inquiry = colInquiries.iterator().next();
-
-                    if (chosenTitle.equals(inquiry.getSubject())) {
-                        theView.displayInquiry(inquiry);
-                        response = theView.getYesNoInput("Would you like to " +
-                                "respond to this inquiry?");
-                        if (response) {
-                            respondToInquiry(inquiry);
-                        } else {
-                            response2 = theView.getYesNoInput("Would you like to " +
-                                    "redirect this inquiry?");
-                            if (response2) {
-                                redirectInquiry(inquiry);
-                            }
-                        }
-                    }
-                }
-            }
-    }
 
         public void manageInquiries(Collection<Inquiry> colInquiries) {
             boolean login;
@@ -135,9 +94,22 @@ public class AdminStaffController extends StaffController{
                 boolean chooseToView = theView.getYesNoInput("Would you like to view " +
                         "the unanswered inquiries?");
                 if (chooseToView) {
-                    viewInquiriesAdmin(colInquiries);
+                    Inquiry inquiry = viewInquiries(colInquiries);
+                    boolean response = false;
+                    boolean response2 = false;
+                    response = theView.getYesNoInput("Would you like to " +
+                            "respond to this inquiry?");
+                    if (response) {
+                        respondToInquiry(inquiry);
+                    } else {
+                        response2 = theView.getYesNoInput("Would you like to " +
+                                "redirect this inquiry?");
+                        if (response2) {
+                            redirectInquiry(inquiry);
+                        }
+                    }
+
                 }
             }
         }
-
 }
