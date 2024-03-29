@@ -70,11 +70,10 @@ public class AdminStaffController extends StaffController{
             //send notification to recipient email of redirection
             String sender = "automatic email system";
             emailServ.sendEmail(sender, recipient, "Notification of email " +
-                    "redirection", "Your email has been redirected to another" +
-                    " member of staff.");
-
-            emailServ.sendEmail(inquiry.getInquirerEmail(), recipient,
-                inquiry.getSubject(), inquiry.getEmailContent());
+                    "redirection", "An inquiry has been redirected to you. " +
+                    "The subject line is: " + inquiry.getSubject() + " Please" +
+                    " log " +
+                    "in to the Self Service Portal to review this inquiry.");
 
             System.out.println("The email has successfully been redirected.");
     }
