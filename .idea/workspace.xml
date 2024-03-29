@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef464a3b-6f61-4358-a3f6-1248295e3c12" name="Changes" comment="some basic class declarations">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_03_2024_17_45_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_03_2024_18_20_[Changes]/shelved.patch" beforeDir="false" />
+    <list default="true" id="ef464a3b-6f61-4358-a3f6-1248295e3c12" name="Changes" comment="respond to inquirer function">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdminStaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AdminStaffController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/StaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/StaffController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/TeachingStaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/TeachingStaffController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/TextUserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/TextUserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +245,42 @@
       <option name="project" value="LOCAL" />
       <updated>1711042612263</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="staff controller update">
+      <created>1711642929650</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1711642929650</updated>
+    </task>
+    <task id="LOCAL-00018" summary="inquirer update">
+      <created>1711643160790</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1711643160790</updated>
+    </task>
+    <task id="LOCAL-00019" summary="added a getter">
+      <created>1711646843230</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1711646843230</updated>
+    </task>
+    <task id="LOCAL-00020" summary="added a setter">
+      <created>1711647280304</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1711647280304</updated>
+    </task>
+    <task id="LOCAL-00021" summary="respond to inquirer function">
+      <created>1711648215368</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1711648215368</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -265,6 +303,11 @@
     <MESSAGE value="THURS 21-03 LAB V2" />
     <MESSAGE value="lucene file" />
     <MESSAGE value="some basic class declarations" />
-    <option name="LAST_COMMIT_MESSAGE" value="some basic class declarations" />
+    <MESSAGE value="staff controller update" />
+    <MESSAGE value="inquirer update" />
+    <MESSAGE value="added a getter" />
+    <MESSAGE value="added a setter" />
+    <MESSAGE value="respond to inquirer function" />
+    <option name="LAST_COMMIT_MESSAGE" value="respond to inquirer function" />
   </component>
 </project>

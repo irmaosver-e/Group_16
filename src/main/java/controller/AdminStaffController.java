@@ -2,9 +2,13 @@ package controller;
 
 import external.AuthenticationService;
 import external.EmailService;
+import external.MockEmailService;
+import model.Inquiry;
 import model.Page;
 import model.SharedContext;
 import view.View;
+
+import java.util.Collection;
 import java.util.Map;
 
 public class AdminStaffController extends StaffController{
@@ -54,5 +58,86 @@ public class AdminStaffController extends StaffController{
         }
 
     }
+
+    private void redirectInquiry(Inquiry inquiry){
+
+            String recipient = null;
+
+            while (recipient==null) {
+                recipient = theView.getInput("Who would you like to redirect " +
+                        "this email to?");
+            }
+            //send notification to recipient email of redirection
+            String sender = "automatic email system";
+            emailServ.sendEmail(sender, recipient, "Notification of email " +
+                    "redirection", "Your email has been redirected to another" +
+                    " member of staff.");
+
+            emailServ.sendEmail(inquiry.getInquirerEmail(), recipient,
+                inquiry.getSubject(), inquiry.getEmailContent());
+
+            System.out.println("The email has successfully been redirected.");
+    }
+
+    protected void viewInquiriesAdmin(Collection<Inquiry> colInquiries) {
+
+            Collection<String> subjects = getInquiryTitles(colInquiries);
+            String[] subjects2 = subjects.toArray(new String[0]);
+
+            if (subjects.isEmpty()) {
+                System.out.println("There are currently no inquiries available.");
+            } else {
+
+                int count = 0;
+                while (count < subjects2.length) {
+                    String title = subjects2[count];
+                    System.out.println(count + 1 + ") " + title);
+                    count = count + 1;
+                }
+
+                String choice = theView.getInput("Please input the number of the " +
+                        "inquiry you would like to read.");
+                String chosenTitle = subjects2[Integer.parseInt(choice) - 1];
+                boolean response = false;
+                boolean response2 = false;
+                while (colInquiries.iterator().hasNext()) {
+                    Inquiry inquiry = colInquiries.iterator().next();
+
+                    if (chosenTitle.equals(inquiry.getSubject())) {
+                        theView.displayInquiry(inquiry);
+                        response = theView.getYesNoInput("Would you like to " +
+                                "respond to this inquiry?");
+                        if (response) {
+                            respondToInquiry(inquiry);
+                        } else {
+                            response2 = theView.getYesNoInput("Would you like to " +
+                                    "redirect this inquiry?");
+                            if (response2) {
+                                redirectInquiry(inquiry);
+                            }
+                        }
+                    }
+                }
+            }
+    }
+
+        public void manageInquiries(Collection<Inquiry> colInquiries) {
+            boolean login;
+            model.User currentUser = sharedCont.getCurrentUser();
+            if (currentUser.getRole() == null) {
+                login = false;
+            } else {
+                login = true;
+            }
+
+            if (login) {
+
+                boolean chooseToView = theView.getYesNoInput("Would you like to view " +
+                        "the unanswered inquiries?");
+                if (chooseToView) {
+                    viewInquiriesAdmin(colInquiries);
+                }
+            }
+        }
 
 }
