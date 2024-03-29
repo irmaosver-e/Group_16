@@ -2,6 +2,7 @@ package view;
 
 import model.FAQ;
 import model.FAQSection;
+import model.Inquiry;
 import model.PageSearchResult;
 import java.util.Collection;
 import java.util.Scanner;
@@ -69,6 +70,13 @@ public class TextUserInterface implements View{
         {
             displayInfo(result.getFormattedContent()+"\n");
         }
+    }
+
+    @Override
+    public void displayInquiry(Inquiry inquiry){
+        System.out.println("Sender: " + inquiry.getInquirerEmail());
+        System.out.println("Subject: " + inquiry.getSubject());
+        System.out.println("Content: " + inquiry.getEmailContent());
     }
 
 }

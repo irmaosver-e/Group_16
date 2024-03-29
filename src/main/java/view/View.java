@@ -2,6 +2,7 @@ package view;
 
 import model.FAQ;
 import model.FAQSection;
+import model.Inquiry;
 import model.PageSearchResult;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public interface View {
     public void displayDivider();
     public void displayFAQ(FAQ faq, Boolean includeSections);
     public void displayFAQSection(FAQSection faqSection, Boolean includeQuestions);
-    //public void displayInquiry(Inquiry inquiry);
+    public void displayInquiry(Inquiry inquiry);
     public void displaySearchResults(Collection<PageSearchResult> results);
 
 

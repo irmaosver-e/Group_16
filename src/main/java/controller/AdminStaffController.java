@@ -2,9 +2,13 @@ package controller;
 
 import external.AuthenticationService;
 import external.EmailService;
+import external.MockEmailService;
+import model.Inquiry;
 import model.Page;
 import model.SharedContext;
 import view.View;
+
+import java.util.Collection;
 import java.util.Map;
 
 public class AdminStaffController extends StaffController{
@@ -55,4 +59,56 @@ public class AdminStaffController extends StaffController{
 
     }
 
+    private void redirectInquiry(Inquiry inquiry){
+
+            String recipient = null;
+
+            while (recipient==null) {
+                recipient = theView.getInput("Who would you like to redirect " +
+                        "this email to?");
+            }
+            //send notification to recipient email of redirection
+            String sender = "automatic email system";
+            emailServ.sendEmail(sender, recipient, "Notification of email " +
+                    "redirection", "An inquiry has been redirected to you. " +
+                    "The subject line is: " + inquiry.getSubject() + " Please" +
+                    " log " +
+                    "in to the Self Service Portal to review this inquiry.");
+
+            System.out.println("The email has successfully been redirected.");
+    }
+
+
+        public void manageInquiries(Collection<Inquiry> colInquiries) {
+            boolean login;
+            model.User currentUser = sharedCont.getCurrentUser();
+            if (currentUser.getRole() == null) {
+                login = false;
+            } else {
+                login = true;
+            }
+
+            if (login) {
+
+                boolean chooseToView = theView.getYesNoInput("Would you like to view " +
+                        "the unanswered inquiries?");
+                if (chooseToView) {
+                    Inquiry inquiry = viewInquiries(colInquiries);
+                    boolean response = false;
+                    boolean response2 = false;
+                    response = theView.getYesNoInput("Would you like to " +
+                            "respond to this inquiry?");
+                    if (response) {
+                        respondToInquiry(inquiry);
+                    } else {
+                        response2 = theView.getYesNoInput("Would you like to " +
+                                "redirect this inquiry?");
+                        if (response2) {
+                            redirectInquiry(inquiry);
+                        }
+                    }
+
+                }
+            }
+        }
 }
