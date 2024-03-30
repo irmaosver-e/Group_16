@@ -11,7 +11,7 @@ public class SharedContext {
     private User currentUser;
     private Map<String, Page> pages;
     private FAQ faq;
-    private Collection<Inquiry> unAnsweredInquiries;
+    public Collection<Inquiry> unAnsweredInquiries;
 
     public SharedContext() {
         this.faqTopicsUpdateSubscribers = new HashMap<String, Collection<String>>();

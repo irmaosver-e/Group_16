@@ -13,11 +13,14 @@ public class Inquiry {
     private String content;
 
     private String assignedTo;
-    //not sure if this is right though
-    public Inquiry (String string1, String string2, String string3){
+    public Inquiry (String inquirerEmail, String subject, String content){
         super();
     }
-    public String getInquirerEmail(){return inquirerEmail;}
+    public String getInquirerEmail(){
+        return inquirerEmail;
+    }
 
-    public String getEmailContent(){return content;}
+    public String getEmailContent() {
+        return content;
+    }
 }
