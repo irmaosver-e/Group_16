@@ -13,7 +13,7 @@ public class MenuController extends Controller {
     private GuestController guestCtrler ;
     private StaffController staffCtrler;
     private InquirerController inquirerCtrler;
-
+    private AdminStaffController adminStaffCtrler;
     private TeachingStaffController teachingStaffCtrler;
 
     public MenuController(SharedContext sharedCont, View theView, AuthenticationService authServ, EmailService emailServ) {
@@ -95,6 +95,7 @@ public class MenuController extends Controller {
                         break;
                     case 1:
                         teachingStaffCtrler.manageReceivedInquiries(sharedCont.getUnAnsweredInquiries());
+                        break;
                 }
             }
         }catch (NumberFormatException e){
@@ -105,12 +106,36 @@ public class MenuController extends Controller {
 
     private boolean handleAdminStaffMainMenu(){
         this.theView.displayInfo("Admin Staff Menu:");
+        int index = 0;
+        EnumSet<AdminStaffMainMenuOption> menuOptions = EnumSet.allOf(AdminStaffMainMenuOption.class);
+        for(AdminStaffMainMenuOption option : menuOptions){
+            this.theView.displayInfo("input ["+index+"] for: "+menuOptions);
+        }
+        String input = theView.getInput("Please make a selection:");
         try{
-            int index = 0;
-            EnumSet<AdminStaffMainMenuOption> menuOptions = EnumSet.allOf(AdminStaffMainMenuOption.class);
-            for(AdminStaffMainMenuOption option : menuOptions){
-                this.theView.displayInfo("input ["+index+"] for: "+menuOptions);
+            int choice = Integer.parseInt(input);
+            if (choice >= 0 && choice < menuOptions.size()){
+                AdminStaffMainMenuOption selectedOption =
+                        (AdminStaffMainMenuOption) menuOptions.toArray()[choice];
+                switch(choice){
+                    case 0:
+                        authUserCtrler.logout();
+                        break;
+                    case 1:
+                        adminStaffCtrler.manageInquiries(sharedCont.getUnAnsweredInquiries());
+                        break;
+                    case 2:
+                        adminStaffCtrler.addPage();
+                        break;
+                    case 3:
+                        adminStaffCtrler.viewAllPages();
+                        break;
+                    case 4:
+                        adminStaffCtrler.manageFAQ();
+                        break;
+                }
             }
+
 
 
         }catch (NumberFormatException e){

@@ -18,7 +18,7 @@ public class AdminStaffController extends StaffController{
         super(sharedCont, theView,authServ,emailServ);
     }
 
-    public void addPAge()
+    public void addPage()
     {
 
         String title = theView.getInput("Enter page title");
@@ -76,6 +76,33 @@ public class AdminStaffController extends StaffController{
                     "in to the Self Service Portal to review this inquiry.");
 
             System.out.println("The email has successfully been redirected.");
+    }
+
+    public void viewAllPages(){
+        Map<String, Page> availablePages = sharedCont.getPages();
+
+        // Check if there are any pages to display
+        if (availablePages.isEmpty()) {
+            theView.displayInfo("There are no pages available.");
+            return;
+        }
+
+        // Display each page
+        for (Map.Entry<String, Page> pageEntry : availablePages.entrySet()) {
+            Page page = pageEntry.getValue();
+            // Assuming Page class has getTitle and getContent methods
+            theView.displayInfo("Title: " + page.getTitle());
+            // Check if the page is not private or if the current user has permission to view it
+            if (!page.isPrivate()) {  // Implement userHasPermission as needed
+                theView.displayInfo("Content: " + page.getContent());
+            } else {
+                theView.displayInfo("This page is private.");
+            }
+        }
+    }
+
+    public void manageFAQ(){
+
     }
 
 
