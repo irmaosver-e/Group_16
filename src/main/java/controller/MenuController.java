@@ -9,14 +9,26 @@ import view.View;
 import java.util.EnumSet;
 
 public class MenuController extends Controller {
+    private AuthenticatedUserController authUserCtrler;
+    private GuestController guestCtrler ;
+    private StaffController staffCtrler;
+    private InquirerController inquirerCtrler;
+
     public MenuController(SharedContext sharedCont, View theView, AuthenticationService authServ, EmailService emailServ) {
         super(sharedCont, theView, authServ, emailServ);
     }
 
     public void mainMenu(){
-        this.theView.displayInfo("Welcome");
-        if(this.sharedCont.getCurrentUser() instanceof Guest){
-            if(GuestMenu());
+        theView.displayInfo("Welcome");
+
+        guestCtrler = new GuestController(sharedCont, theView, authServ, emailServ);
+
+        if(theView.getInput("Continue a Guest? Yes/No").equals("Yes")){
+            GuestMenu();
+        }
+        else
+        {
+            guestCtrler.login();
         }
     }
 

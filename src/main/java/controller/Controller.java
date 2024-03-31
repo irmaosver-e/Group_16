@@ -14,7 +14,12 @@ public abstract class Controller {
     protected AuthenticationService authServ;
     protected EmailService emailServ;
     protected Controller(SharedContext sharedCont, View theView, AuthenticationService authServ,
-                         EmailService emailServ){};
+                         EmailService emailServ){
+        this.sharedCont = sharedCont;
+        this.theView = theView;
+        this.authServ = authServ;
+        this.emailServ = emailServ;
+    };
 
     protected <T extends Enum<T>> int selectFromMenu(Collection<T> menuOptions ,String returninfo){
         int index = 0;

@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.Scanner;
 
 public class TextUserInterface implements View{
-    private  Scanner scanner;
+    private  Scanner scanner = new Scanner(System.in);
     @Override
     public String getInput(String input) {
         System.out.println(input);
