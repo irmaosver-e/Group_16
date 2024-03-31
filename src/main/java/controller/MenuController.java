@@ -14,6 +14,8 @@ public class MenuController extends Controller {
     private StaffController staffCtrler;
     private InquirerController inquirerCtrler;
 
+    private TeachingStaffController teachingStaffCtrler;
+
     public MenuController(SharedContext sharedCont, View theView, AuthenticationService authServ, EmailService emailServ) {
         super(sharedCont, theView, authServ, emailServ);
     }
@@ -76,14 +78,25 @@ public class MenuController extends Controller {
 
     private boolean handleTeachingStaffMainMenu(){
         this.theView.displayInfo("Teaching Staff Menu:");
+        int index = 0;
+        EnumSet<TeachingStaffMainMenuOption> menuOptions = EnumSet.allOf(TeachingStaffMainMenuOption.class);
+        for(TeachingStaffMainMenuOption option : menuOptions){
+            this.theView.displayInfo("input ["+index+"] for: "+menuOptions);
+        }
+        String input = theView.getInput("Please make a selection:");
         try{
-            int index = 0;
-            EnumSet<TeachingStaffMainMenuOption> menuOptions = EnumSet.allOf(TeachingStaffMainMenuOption.class);
-            for(TeachingStaffMainMenuOption option : menuOptions){
-                this.theView.displayInfo("input ["+index+"] for: "+menuOptions);
+            int choice = Integer.parseInt(input);
+            if (choice >= 0 && choice < menuOptions.size()){
+                TeachingStaffMainMenuOption selectedOption =
+                        (TeachingStaffMainMenuOption) menuOptions.toArray()[choice];
+                switch(choice){
+                    case 0:
+                        authUserCtrler.logout();
+                        break;
+                    case 1:
+                        teachingStaffCtrler.manageReceivedInquiries(sharedCont.getUnAnsweredInquiries());
+                }
             }
-
-
         }catch (NumberFormatException e){
             this.theView.displayException(e);
         }
