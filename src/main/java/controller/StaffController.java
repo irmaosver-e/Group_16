@@ -24,8 +24,6 @@ public class StaffController extends Controller{
         return colStr;
     }
 
-
-
     protected void respondToInquiry(Inquiry inquiry){
         model.User currentUser= sharedCont.getCurrentUser();
 

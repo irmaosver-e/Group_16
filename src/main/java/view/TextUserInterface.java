@@ -68,7 +68,7 @@ public class TextUserInterface implements View{
     public void displaySearchResults(Collection<PageSearchResult> results) {
         for(PageSearchResult result : results)
         {
-            displayInfo(result.getFormattedContent()+"\n");
+            displayInfo(result.getFormattedContent()+"\n\n");
         }
     }
 
