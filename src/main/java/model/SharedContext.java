@@ -30,6 +30,5 @@ public class SharedContext {
 
     public Collection<Inquiry> getUnAnsweredInquiries(){return unAnsweredInquiries;}
 
-    public void setUnAnsweredInquiries(Collection<Inquiry> unAnsweredInquiries){this.unAnsweredInquiries=unAnsweredInquiries;
-    }
+
 }
