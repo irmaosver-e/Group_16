@@ -23,6 +23,29 @@ public class InquirerController extends Controller {
         FAQSection currentSession = null;
     }
 
+    public void contactStaff() {
+        String inquirerEmail;
+        // Checking if user is logged in
+        if (sharedCont.getCurrentUser() != null){
+            inquirerEmail = sharedCont.getCurrentUser().getEmail();
+        }
+        else {
+            inquirerEmail = theView.getInput("Please enter your email address:");
+        }
+        // Prompt for the subject and content of the inquiry
+        String subject = theView.getInput("Please enter the subject of your inquiry:");
+        String content = theView.getInput("Please enter the content of your inquiry:");
+        Inquiry newInquiry = new Inquiry(inquirerEmail,subject,content);
+        sharedCont.unAnsweredInquiries.add(newInquiry);
+        theView.displaySuccess("Inquiry submitted successfully!");
+
+        String adminEmail = sharedCont.ADMIN_STAFF_EMAIL;
+        String notifSubject = "New inquiry:"+subject;
+        String notifContent = " Please log in to the Self Service Portal to review.";
+        emailServ.sendEmail(inquirerEmail,adminEmail,notifSubject,notifContent);
+
+    }
+
     // Method to search pages based on user input
     public void searchPages() {
         // Prompt user to enter search query
