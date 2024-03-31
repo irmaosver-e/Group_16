@@ -4,7 +4,9 @@ public enum AdminStaffMainMenuOption {
     LOGOUT(0),
     MANAGE_QUERIES(1),
     ADD_PAGE(2),
-    MANAGE_FAQ(3);
+
+    SEE_ALL_PAGES(3),
+    MANAGE_FAQ(4);
     public final int value;
 
     AdminStaffMainMenuOption(int v) {
