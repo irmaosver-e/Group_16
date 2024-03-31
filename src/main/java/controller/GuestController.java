@@ -30,16 +30,14 @@ public class GuestController extends Controller {
 
             String role = (String) user.get("role");
 
-            AuthenticatedUser currentUser = new AuthenticatedUser(email, role);
-
             if (email == null){
                 throw new IllegalArgumentException("User email cannot be full");
             }
-            if (role == null | (role != "Student" & role != "AdminStaff" & role != "TeachingStaff")){
+            if (!(role == "Student" || role == "AdminStaff" || role == "TeachingStaff")){
                 throw new IllegalArgumentException("Unsupported user role");
             }
 
-            sharedCont.setCurrentUser(currentUser);
+            sharedCont.setCurrentUser(new AuthenticatedUser(email, role));
             theView.displaySuccess("login successful");
 
         } catch (IllegalArgumentException | ParseException e) {

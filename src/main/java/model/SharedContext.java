@@ -23,9 +23,7 @@ public class SharedContext {
     public User getCurrentUser() {
         return currentUser;
     }
-    public void setCurrentUser(User currentUser) {
-        this.currentUser = currentUser;
-    }
+    public void setCurrentUser(User currentUser) {this.currentUser = currentUser;}
 
     public void addPage(Page newPage){this.pages.put(newPage.getTitle(), newPage);}
     public Map<String,Page> getPages(){return this.pages;}
