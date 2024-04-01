@@ -7,6 +7,7 @@ import view.View;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 // Controller class responsible for handling actions related to inquirers
@@ -50,11 +51,18 @@ public class InquirerController extends Controller {
     public void searchPages() {
         // Prompt user to enter search query
         String searchQuery = theView.getInput("Enter your search query:");
-        // Retrieve available pages from shared context
-        Map<String, Page> availablePages = sharedCont.getPages();
+        if (searchQuery.isBlank() || searchQuery.isEmpty())
+        {
+            theView.displayInfo("empty query");
+            return;
+        }
 
-        // If the current user is a guest (i.e., their role is null), filter out private pages
-        if (sharedCont.getCurrentUser().getRole() == null) {
+        // Retrieve available pages from shared context
+        Map<String, Page> availablePages = new HashMap<>(sharedCont.getPages());
+
+        // If the current user is a guest filter out private pages
+        if (sharedCont.getCurrentUser() instanceof Guest) {
+
             for (Map.Entry<String, Page> page : sharedCont.getPages().entrySet()) {
                 // Check if the page is private, remove it from availablePages if so
                 if (page.getValue().isPrivate()) {
@@ -78,8 +86,14 @@ public class InquirerController extends Controller {
         if (results.size() > 4) {
             results = (Collection<PageSearchResult>) results.stream().limit(4);
         }
-
-        // Display search results to the user
-        theView.displaySearchResults(results);
+        if(results.size() > 0)
+        {
+            // Display search results to the user
+            theView.displaySearchResults(results);
+        }
+        else
+        {
+            theView.displayInfo("no results");
+        }
     }
 }

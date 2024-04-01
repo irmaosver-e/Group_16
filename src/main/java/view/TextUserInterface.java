@@ -68,15 +68,15 @@ public class TextUserInterface implements View{
     public void displaySearchResults(Collection<PageSearchResult> results) {
         for(PageSearchResult result : results)
         {
-            displayInfo(result.getFormattedContent()+"\n\n");
+            displayInfo(result.getFormattedContent()+"\n");
         }
     }
 
     @Override
     public void displayInquiry(Inquiry inquiry){
-        System.out.println("Sender: " + inquiry.getInquirerEmail());
-        System.out.println("Subject: " + inquiry.getSubject());
-        System.out.println("Content: " + inquiry.getEmailContent());
+        displayInfo("Sender: " + inquiry.getInquirerEmail());
+        displayInfo("Subject: " + inquiry.getSubject());
+        displayInfo("Content: " + inquiry.getEmailContent());
     }
 
 }
