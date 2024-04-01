@@ -27,12 +27,11 @@ public class AdminStaffController extends StaffController{
 
         Map<String, Page> availablePages = sharedCont.getPages();
 
-        boolean titleExists = availablePages.containsKey("title");
-
+        boolean titleExists = availablePages.containsKey(title);
 
         if(titleExists)
         {
-            boolean overwrite = theView.getYesNoInput("Page" + title + "already exists. Overwrite with new page?");
+            boolean overwrite = theView.getYesNoInput("Page " + title + " already exists. Overwrite with new page?");
 
             if(!overwrite)
             {
@@ -98,6 +97,9 @@ public class AdminStaffController extends StaffController{
             } else {
                 theView.displayInfo("This page is private.");
             }
+
+            //adds a space between entries
+            theView.displayInfo("");
         }
     }
 

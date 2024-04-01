@@ -19,7 +19,12 @@ public class Main {
         MockEmailService theEmailServ = new MockEmailService();
         MenuController theMenuController = new MenuController(theSharedContext, theTextUserInterface, theAuthServ, theEmailServ);
 
-        theMenuController.mainMenu();
+        boolean run = true;
+        while(run)
+        {
+            theMenuController.mainMenu();
+            System.out.println("\n");
+        }
     }
 
 }

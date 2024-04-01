@@ -18,27 +18,37 @@ public class MenuController extends Controller {
 
     public MenuController(SharedContext sharedCont, View theView, AuthenticationService authServ, EmailService emailServ) {
         super(sharedCont, theView, authServ, emailServ);
+        authUserCtrler = new AuthenticatedUserController(sharedCont, theView, authServ, emailServ);
+        guestCtrler = new GuestController(sharedCont, theView, authServ, emailServ);
+        staffCtrler = new StaffController(sharedCont, theView, authServ, emailServ);
+        inquirerCtrler = new InquirerController(sharedCont, theView, authServ, emailServ);
+        adminStaffCtrler = new AdminStaffController(sharedCont, theView, authServ, emailServ);
+        teachingStaffCtrler = new TeachingStaffController(sharedCont, theView, authServ, emailServ);
+
     }
 
     public void mainMenu() {
-        String role = this.sharedCont.getCurrentUser().getRole(); // Determine the user's role
 
-        switch (role) {
-            case "Guest":
-                handleGuestMainMenu();
-                break;
-            case "Student":
-                handleStudentMainMenu();
-                break;
-            case "TeachingStaff":
-                handleTeachingStaffMainMenu();
-                break;
-            case "AdminStaff":
-                handleAdminStaffMainMenu();
-                break;
-            default:
-                this.theView.displayError("Unknown user role.");
-                break;
+        if(sharedCont.getCurrentUser() instanceof Guest)
+        {
+            handleGuestMainMenu();
+        }
+        if(!(sharedCont.getCurrentUser() instanceof Guest)) {
+            String role = this.sharedCont.getCurrentUser().getRole(); // Determine the user's role
+            switch (role) {
+                case "Student":
+                    handleStudentMainMenu();
+                    break;
+                case "TeachingStaff":
+                    handleTeachingStaffMainMenu();
+                    break;
+                case "AdminStaff":
+                    handleAdminStaffMainMenu();
+                    break;
+                default:
+                    this.theView.displayError("Unknown user role.");
+                    break;
+            }
         }
     }
 
@@ -55,6 +65,7 @@ public class MenuController extends Controller {
             int choice = Integer.parseInt(input);
             if (choice >= 0 && choice < menuOptions.size()) {
                 GuestMainMenuOption selectedOption = (GuestMainMenuOption) menuOptions.toArray()[choice];
+
                 switch (selectedOption) {
                     case LOGIN:
                         guestCtrler.login();
@@ -97,6 +108,8 @@ public class MenuController extends Controller {
                 switch (selectedOption) {
                     case LOGOUT:
                         authUserCtrler.logout();
+                        // Redirect to the main menu page by calling the mainMenu() method of MenuController - assumption for logout logic
+                        mainMenu();
                         break;
                     case CONSULT_FAQ:
                         inquirerCtrler.consultFAQ();

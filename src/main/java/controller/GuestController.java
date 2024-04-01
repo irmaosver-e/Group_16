@@ -29,22 +29,16 @@ public class GuestController extends Controller {
             String email = (String) user.get("email");
 
             String role = (String) user.get("role");
-
             if (email == null){
                 throw new IllegalArgumentException("User email cannot be full");
             }
-            if (!(role == "Student" || role == "AdminStaff" || role == "TeachingStaff")){
+            if (!(role.equals("Student") || role.equals("AdminStaff") || role.equals("TeachingStaff"))){
                 throw new IllegalArgumentException("Unsupported user role");
             }
-
             sharedCont.setCurrentUser(new AuthenticatedUser(email, role));
             theView.displaySuccess("login successful");
-
         } catch (IllegalArgumentException | ParseException e) {
             theView.displayException(e);
-
         }
     }
-
-
 }
