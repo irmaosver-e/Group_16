@@ -31,10 +31,12 @@ public class TeachingStaffController extends StaffController{
             boolean response = false;
             if (chooseToView) {
                 Inquiry inquiry = viewInquiries(colInquiries);
-                response = theView.getYesNoInput("Would you like to " +
-                        "respond to this inquiry?");
-                if (response) {
-                    respondToInquiry(inquiry);
+                if (inquiry!=null) {
+                    response = theView.getYesNoInput("Would you like to " +
+                            "respond to this inquiry?");
+                    if (response) {
+                        respondToInquiry(inquiry);
+                    }
                 }
             }
         }

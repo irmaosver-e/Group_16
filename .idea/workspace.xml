@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef464a3b-6f61-4358-a3f6-1248295e3c12" name="Changes" comment="inquiry response update3">
+    <list default="true" id="ef464a3b-6f61-4358-a3f6-1248295e3c12" name="Changes" comment="removed a setter that i added before and then didn't need">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/SharedContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SharedContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdminStaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AdminStaffController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/TeachingStaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/TeachingStaffController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +60,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Search Index">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Build Index" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.apache.lucene.demo.IndexFiles" />
       <module name="SEPP_CW3" />
@@ -69,7 +70,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="SEPP_CW3" />
       <method v="2">
@@ -84,16 +85,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test Lucene Core API" type="JUnit" factoryName="JUnit">
+      <module name="SEPP_CW3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LuceneTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Build Index" />
       <item itemvalue="Application.Search Index" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.Test Lucene Core API" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -297,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1711724382587</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="removed a setter that i added before and then didn't need">
+      <created>1711918944347</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1711918944347</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -328,6 +342,7 @@
     <MESSAGE value="inquiry response update" />
     <MESSAGE value="inquiry response update2" />
     <MESSAGE value="inquiry response update3" />
-    <option name="LAST_COMMIT_MESSAGE" value="inquiry response update3" />
+    <MESSAGE value="removed a setter that i added before and then didn't need" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed a setter that i added before and then didn't need" />
   </component>
 </project>

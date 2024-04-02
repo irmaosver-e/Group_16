@@ -123,17 +123,19 @@ public class AdminStaffController extends StaffController{
                         "the unanswered inquiries?");
                 if (chooseToView) {
                     Inquiry inquiry = viewInquiries(colInquiries);
-                    boolean response = false;
-                    boolean response2 = false;
-                    response = theView.getYesNoInput("Would you like to " +
-                            "respond to this inquiry?");
-                    if (response) {
-                        respondToInquiry(inquiry);
-                    } else {
-                        response2 = theView.getYesNoInput("Would you like to " +
-                                "redirect this inquiry?");
-                        if (response2) {
-                            redirectInquiry(inquiry);
+                    if (inquiry!=null) {
+                        boolean response = false;
+                        boolean response2 = false;
+                        response = theView.getYesNoInput("Would you like to " +
+                                "respond to this inquiry?");
+                        if (response) {
+                            respondToInquiry(inquiry);
+                        } else {
+                            response2 = theView.getYesNoInput("Would you like to " +
+                                    "redirect this inquiry?");
+                            if (response2) {
+                                redirectInquiry(inquiry);
+                            }
                         }
                     }
 
