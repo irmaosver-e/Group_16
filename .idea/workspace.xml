@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef464a3b-6f61-4358-a3f6-1248295e3c12" name="Changes" comment="inquiry fix">
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestMockAuthenticationService.java" afterDir="false" />
+    <list default="true" id="ef464a3b-6f61-4358-a3f6-1248295e3c12" name="Changes" comment="unit test">
+      <change afterPath="$PROJECT_DIR$/src/test/java/MockEmailServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MockUserDataGroups4.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MockUserDataGroups4.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LuceneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LuceneTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdminStaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AdminStaffController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/StaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/StaffController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/TeachingStaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/TeachingStaffController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Inquiry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Inquiry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestMockAuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestMockAuthenticationService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +65,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Test Lucene Core API">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Build Index" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.apache.lucene.demo.IndexFiles" />
       <module name="SEPP_CW3" />
@@ -86,6 +90,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MockEmailServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEPP_CW3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MockEmailServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MockEmailServiceTest.testEmailServiceSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEPP_CW3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MockEmailServiceTest" />
+      <option name="METHOD_NAME" value="testEmailServiceSuccess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MockEmailServiceTest.testTeacherReplyEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEPP_CW3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MockEmailServiceTest" />
+      <option name="METHOD_NAME" value="testTeacherReplyEmail" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test Lucene Core API" type="JUnit" factoryName="JUnit">
       <module name="SEPP_CW3" />
       <option name="PACKAGE_NAME" value="" />
@@ -101,7 +134,17 @@
       <item itemvalue="Application.Search Index" />
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.Test Lucene Core API" />
+      <item itemvalue="JUnit.MockEmailServiceTest" />
+      <item itemvalue="JUnit.MockEmailServiceTest.testEmailServiceSuccess" />
+      <item itemvalue="JUnit.MockEmailServiceTest.testTeacherReplyEmail" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MockEmailServiceTest.testTeacherReplyEmail" />
+        <item itemvalue="JUnit.MockEmailServiceTest.testEmailServiceSuccess" />
+        <item itemvalue="JUnit.MockEmailServiceTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -319,7 +362,14 @@
       <option name="project" value="LOCAL" />
       <updated>1712073515429</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="unit test">
+      <created>1712077710689</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1712077710689</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -352,6 +402,7 @@
     <MESSAGE value="inquiry response update3" />
     <MESSAGE value="removed a setter that i added before and then didn't need" />
     <MESSAGE value="inquiry fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="inquiry fix" />
+    <MESSAGE value="unit test" />
+    <option name="LAST_COMMIT_MESSAGE" value="unit test" />
   </component>
 </project>

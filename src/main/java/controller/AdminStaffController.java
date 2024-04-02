@@ -61,20 +61,30 @@ public class AdminStaffController extends StaffController{
     private void redirectInquiry(Inquiry inquiry){
 
             String recipient = null;
+            boolean problem=true;
+            while (recipient==null || problem) {
+                recipient = theView.getInput("Please input the email address " +
+                        "of the " +
+                        "person you would like to redirect this email to.");
 
-            while (recipient==null) {
-                recipient = theView.getInput("Who would you like to redirect " +
-                        "this email to?");
+                //send notification to recipient email of redirection
+                String sender = sharedCont.ADMIN_STAFF_EMAIL;
+                int checkSent = emailServ.sendEmail(sender, recipient,
+                        "Notification of email " +
+                                "redirection", "An inquiry has been redirected to you. " +
+                                "The subject line is: " + inquiry.getSubject() + " " +
+                                "\nPlease" +
+                                " log " +
+                                "in to the Self Service Portal to review this inquiry.");
+                if (checkSent == 0) {
+                    System.out.println("The email has successfully been redirected.");
+                    problem = false;
+                } else if (checkSent == 2) {
+                    System.out.println("The recipient email is incorrect.");
+                } else {
+                    System.out.println("The sender email is incorrect.");
+                }
             }
-            //send notification to recipient email of redirection
-            String sender = "automatic email system";
-            emailServ.sendEmail(sender, recipient, "Notification of email " +
-                    "redirection", "An inquiry has been redirected to you. " +
-                    "The subject line is: " + inquiry.getSubject() + " Please" +
-                    " log " +
-                    "in to the Self Service Portal to review this inquiry.");
-
-            System.out.println("The email has successfully been redirected.");
     }
 
     public void viewAllPages(){
@@ -108,8 +118,10 @@ public class AdminStaffController extends StaffController{
     }
 
 
-        public void manageInquiries(Collection<Inquiry> colInquiries) {
+        public void manageInquiries() {
             boolean login;
+            Collection<Inquiry> colInquiries =
+                    sharedCont.getUnAnsweredInquiries();
             model.User currentUser = sharedCont.getCurrentUser();
             if (currentUser.getRole() == null) {
                 login = false;

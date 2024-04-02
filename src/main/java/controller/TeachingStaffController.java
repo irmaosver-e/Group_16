@@ -16,8 +16,9 @@ public class TeachingStaffController extends StaffController{
 
 
 
-    public void manageReceivedInquiries(Collection<Inquiry> colInquiries) {
+    public void manageReceivedInquiries() {
         boolean login;
+        Collection<Inquiry> colInquiries = sharedCont.getUnAnsweredInquiries();
         model.User currentUser = sharedCont.getCurrentUser();
         if (currentUser.getRole() == null) {
             login = false;

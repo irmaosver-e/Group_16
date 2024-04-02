@@ -3,8 +3,8 @@ package model;
 import java.time.DateTimeException;
 
 public class Inquiry {
-    public String getSubject(){return m_subject; }
-    private String m_subject;
+
+    private String subject;
 
     private DateTimeException createdAt;
 
@@ -13,9 +13,14 @@ public class Inquiry {
     private String content;
 
     private String assignedTo;
+
     public Inquiry (String inquirerEmail, String subject, String content){
-        super();
+        this.inquirerEmail = inquirerEmail;
+        this.subject = subject;
+        this.content = content;
     }
+
+    public String getSubject(){return subject; }
     public String getInquirerEmail(){
         return inquirerEmail;
     }
