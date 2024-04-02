@@ -49,11 +49,11 @@ public class AdminStaffController extends StaffController{
 
         if(status == EmailService.STATUS_SUCCESS)
         {
-            theView.displaySuccess("Added Page" + title + "");
+            theView.displaySuccess("Added Page " + title + "");
         }
         else
         {
-            theView.displayWarning("Added Page" + title + "but failed to send email notification!");
+            theView.displayWarning("Added Page " + title + " but failed to send email notification!");
         }
 
     }
@@ -89,14 +89,14 @@ public class AdminStaffController extends StaffController{
         // Display each page
         for (Map.Entry<String, Page> pageEntry : availablePages.entrySet()) {
             Page page = pageEntry.getValue();
-            // Assuming Page class has getTitle and getContent methods
-            theView.displayInfo("Title: " + page.getTitle());
-            // Check if the page is not private or if the current user has permission to view it
-            if (!page.isPrivate()) {  // Implement userHasPermission as needed
-                theView.displayInfo("Content: " + page.getContent());
-            } else {
+
+            if (page.isPrivate()) {
                 theView.displayInfo("This page is private.");
             }
+
+            // Assuming Page class has getTitle and getContent methods
+            theView.displayInfo("Title: " + page.getTitle());
+            theView.displayInfo("Content: " + page.getContent());
 
             //adds a space between entries
             theView.displayInfo("");
