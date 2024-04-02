@@ -29,6 +29,6 @@ public class MockEmailServiceTest {
 
     @Test
     public void testTeacherReplyEmail(){
-        assertEquals(0, emailServ.sendEmail("tickingtimebomb", "beanstalk2023", "subject", "content"));
+        assertEquals(0, emailServ.sendEmail("pranksterpete@hindeburg.ac.uk", "thejoker@hindeburg.ac.uk", "subject", "content"));
     }
 }
