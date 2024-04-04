@@ -23,6 +23,16 @@ public class SharedContext {
     public User getCurrentUser() {
         return currentUser;
     }
+    public FAQ getFaq() {
+        return this.faq;
+    }
+    public boolean unregisterForFAQUpdates(String email, String topic){
+        return this.faqTopicsUpdateSubscribers.get(topic).remove(email);
+    }
+
+    public Collection<String> usersSubscribedTopic(String topic){
+        return this.faqTopicsUpdateSubscribers.get(topic);
+    }
     public void setCurrentUser(User currentUser) {this.currentUser = currentUser;}
 
     public void addPage(Page newPage){this.pages.put(newPage.getTitle(), newPage);}
