@@ -30,8 +30,24 @@ public class SharedContext {
         return this.faqTopicsUpdateSubscribers.get(topic).remove(email);
     }
 
+    public boolean registerForFAQUpdates(String email, String topic) {
+        if(this.faqTopicsUpdateSubscribers.get(topic) == null){
+            ArrayList<String> Subscribers = new ArrayList<>();
+            Subscribers.add(email);
+            this.faqTopicsUpdateSubscribers.put(topic, Subscribers);
+        }else {
+            this.faqTopicsUpdateSubscribers.get(topic).add(email);
+        }
+
+        return true;
+    }
+
     public Collection<String> usersSubscribedTopic(String topic){
         return this.faqTopicsUpdateSubscribers.get(topic);
+    }
+
+    public Map<String, Collection<String>> getFaqTopicsUpdateSubscribers() {
+        return faqTopicsUpdateSubscribers;
     }
     public void setCurrentUser(User currentUser) {this.currentUser = currentUser;}
 
