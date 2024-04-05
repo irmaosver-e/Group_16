@@ -3,9 +3,7 @@ package controller;
 import external.AuthenticationService;
 import external.EmailService;
 import external.MockEmailService;
-import model.Inquiry;
-import model.Page;
-import model.SharedContext;
+import model.*;
 import view.View;
 
 import java.util.Collection;
@@ -197,7 +195,7 @@ public class AdminStaffController extends StaffController{
             Collection<Inquiry> colInquiries =
                     sharedCont.getUnAnsweredInquiries();
             model.User currentUser = sharedCont.getCurrentUser();
-            if (currentUser.getRole() == null) {
+            if (((AuthenticatedUser)currentUser).getRole() == null) {
                 login = false;
             } else {
                 login = true;
