@@ -26,7 +26,7 @@ public class TestMockAuthenticationService {
         String response = authServ.login("Hello","magicwand123");
         assertNotNull(response,"The login response should not be null.");
         String expectedResponse = "{\"error\":\"Wrong username or password\"}";
-        assertEquals(expectedResponse, response, "The response should indicate that user is not found.");
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -35,7 +35,7 @@ public class TestMockAuthenticationService {
         assertNotNull(response,"The login response should not be null.");
         // Corrected string comparison
         String expectedResponse = "{\"error\":\"Wrong username or password\"}";
-        assertEquals(expectedResponse, response, "The response should indicate a wrong username or password.");
+        assertEquals(expectedResponse, response);
     }
 
 
