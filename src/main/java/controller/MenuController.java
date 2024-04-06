@@ -151,7 +151,7 @@ public class MenuController extends Controller {
                         authUserCtrler.logout();
                         break;
                     case MANAGE_RECEIVED_QUERIES:
-                        teachingStaffCtrler.manageReceivedInquiries(sharedCont.getUnAnsweredInquiries());
+                        teachingStaffCtrler.manageReceivedInquiries();
                         break;
                     default:
                         theView.displayError("Unknown selection.");
@@ -184,7 +184,7 @@ public class MenuController extends Controller {
                         authUserCtrler.logout();
                         break;
                     case MANAGE_QUERIES:
-                        adminStaffCtrler.manageInquiries(sharedCont.getUnAnsweredInquiries());
+                        adminStaffCtrler.manageInquiries();
                         break;
                     case ADD_PAGE:
                         adminStaffCtrler.addPage();

@@ -1,11 +1,5 @@
 [
   {
-    "username": "adminUser",
-    "password": "adminPass",
-    "email": "adminUser@hindenburg.ac.uk",
-    "role": "AdminStaff"
-  },
-  {
     "username": "JackTheRipper",
     "password": "catch me if u can",
     "email": "jack.tr@hindenburg.ac.uk",

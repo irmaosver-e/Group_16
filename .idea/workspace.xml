@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef464a3b-6f61-4358-a3f6-1248295e3c12" name="Changes" comment="removed a setter that i added before and then didn't need">
+    <list default="true" id="ef464a3b-6f61-4358-a3f6-1248295e3c12" name="Changes" comment="test added for mock email">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdminStaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AdminStaffController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/TeachingStaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/TeachingStaffController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MockEmailServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MockEmailServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +59,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.MockEmailServiceTest.testAdminNotif">
     <configuration name="Build Index" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.apache.lucene.demo.IndexFiles" />
       <module name="SEPP_CW3" />
@@ -85,6 +84,56 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MockEmailServiceTest.testAdminNotif" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEPP_CW3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MockEmailServiceTest" />
+      <option name="METHOD_NAME" value="testAdminNotif" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MockEmailServiceTest.testAdminReplyEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEPP_CW3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MockEmailServiceTest" />
+      <option name="METHOD_NAME" value="testAdminReplyEmail" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MockEmailServiceTest.testEmailServiceSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEPP_CW3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MockEmailServiceTest" />
+      <option name="METHOD_NAME" value="testEmailServiceSuccess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MockEmailServiceTest.testTeacherReplyEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEPP_CW3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MockEmailServiceTest" />
+      <option name="METHOD_NAME" value="testTeacherReplyEmail" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MockEmailServiceTest.testWrongSenderEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEPP_CW3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MockEmailServiceTest" />
+      <option name="METHOD_NAME" value="testWrongSenderEmail" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test Lucene Core API" type="JUnit" factoryName="JUnit">
       <module name="SEPP_CW3" />
       <option name="PACKAGE_NAME" value="" />
@@ -100,7 +149,21 @@
       <item itemvalue="Application.Search Index" />
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.Test Lucene Core API" />
+      <item itemvalue="JUnit.MockEmailServiceTest.testAdminNotif" />
+      <item itemvalue="JUnit.MockEmailServiceTest.testAdminReplyEmail" />
+      <item itemvalue="JUnit.MockEmailServiceTest.testEmailServiceSuccess" />
+      <item itemvalue="JUnit.MockEmailServiceTest.testTeacherReplyEmail" />
+      <item itemvalue="JUnit.MockEmailServiceTest.testWrongSenderEmail" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MockEmailServiceTest.testAdminNotif" />
+        <item itemvalue="JUnit.MockEmailServiceTest.testAdminReplyEmail" />
+        <item itemvalue="JUnit.MockEmailServiceTest.testWrongSenderEmail" />
+        <item itemvalue="JUnit.MockEmailServiceTest.testTeacherReplyEmail" />
+        <item itemvalue="JUnit.MockEmailServiceTest.testEmailServiceSuccess" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -311,7 +374,42 @@
       <option name="project" value="LOCAL" />
       <updated>1711918944347</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="inquiry fix">
+      <created>1712073515429</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1712073515429</updated>
+    </task>
+    <task id="LOCAL-00027" summary="unit test">
+      <created>1712077710689</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1712077710689</updated>
+    </task>
+    <task id="LOCAL-00028" summary="inquiry response use case errors now fixed">
+      <created>1712099007885</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1712099007885</updated>
+    </task>
+    <task id="LOCAL-00029" summary="inquiry response use case errors now fixed">
+      <created>1712099281097</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1712099281097</updated>
+    </task>
+    <task id="LOCAL-00030" summary="test added for mock email">
+      <created>1712099591574</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1712099591574</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -343,6 +441,10 @@
     <MESSAGE value="inquiry response update2" />
     <MESSAGE value="inquiry response update3" />
     <MESSAGE value="removed a setter that i added before and then didn't need" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed a setter that i added before and then didn't need" />
+    <MESSAGE value="inquiry fix" />
+    <MESSAGE value="unit test" />
+    <MESSAGE value="inquiry response use case errors now fixed" />
+    <MESSAGE value="test added for mock email" />
+    <option name="LAST_COMMIT_MESSAGE" value="test added for mock email" />
   </component>
 </project>

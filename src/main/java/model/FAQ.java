@@ -5,11 +5,13 @@ import java.util.List;
 import java.util.Map;
 
 public class FAQ {
-    public List<FAQSection> sections;
+    private FAQSection faqSection;
 
     public FAQ(){
-        this.sections = new ArrayList<FAQSection>();
+        this.faqSection = new FAQSection();
     }
 
-
+    public FAQSection getFaqSection() {
+        return this.faqSection;
+    }
 }

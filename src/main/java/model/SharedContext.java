@@ -23,6 +23,32 @@ public class SharedContext {
     public User getCurrentUser() {
         return currentUser;
     }
+    public FAQ getFaq() {
+        return this.faq;
+    }
+    public boolean unregisterForFAQUpdates(String email, String topic){
+        return this.faqTopicsUpdateSubscribers.get(topic).remove(email);
+    }
+
+    public boolean registerForFAQUpdates(String email, String topic) {
+        if(this.faqTopicsUpdateSubscribers.get(topic) == null){
+            ArrayList<String> Subscribers = new ArrayList<>();
+            Subscribers.add(email);
+            this.faqTopicsUpdateSubscribers.put(topic, Subscribers);
+        }else {
+            this.faqTopicsUpdateSubscribers.get(topic).add(email);
+        }
+
+        return true;
+    }
+
+    public Collection<String> usersSubscribedTopic(String topic){
+        return this.faqTopicsUpdateSubscribers.get(topic);
+    }
+
+    public Map<String, Collection<String>> getFaqTopicsUpdateSubscribers() {
+        return faqTopicsUpdateSubscribers;
+    }
     public void setCurrentUser(User currentUser) {this.currentUser = currentUser;}
 
     public void addPage(Page newPage){this.pages.put(newPage.getTitle(), newPage);}

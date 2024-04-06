@@ -15,6 +15,7 @@ import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.IOUtils;
+import org.junit.Test;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -23,6 +24,7 @@ import java.nio.file.Path;
 import static org.junit.Assert.assertEquals;
 
 public class LuceneTest {
+    @Test
     public void testCore() throws ParseException, IOException {
         Analyzer analyzer = new StandardAnalyzer();
 

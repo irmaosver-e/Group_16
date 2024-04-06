@@ -15,9 +15,9 @@ public class StaffController extends Controller{
         super(sharedCont, theView,authServ,emailServ);
     }
 
-    protected Collection<String> getInquiryTitles(Collection<Inquiry> colInquiries)
+    protected ArrayList<String> getInquiryTitles(Collection<Inquiry> colInquiries)
     {
-        Collection<String> colStr = new ArrayList<>();
+        ArrayList<String> colStr = new ArrayList<String>();
         for (Inquiry inquiry : colInquiries) {
             colStr.add(inquiry.getSubject());
         }
@@ -52,8 +52,7 @@ public class StaffController extends Controller{
 
     protected Inquiry viewInquiries(Collection<Inquiry> colInquiries) {
 
-        Collection<String> subjects = getInquiryTitles(colInquiries);
-        String[] subjects2 = subjects.toArray(new String[0]);
+        ArrayList<String> subjects = getInquiryTitles(colInquiries);
 
         if (subjects.isEmpty()) {
             System.out.println("There are currently no inquiries available.");
@@ -62,20 +61,19 @@ public class StaffController extends Controller{
         else {
 
             int count = 0;
-            while (count < subjects2.length) {
-                String title = subjects2[count];
-                System.out.println(count + 1 + ") " + title);
+            while (count < subjects.size()) {
+                String title = subjects.get(count);
+                System.out.println((count + 1) + ") " + title);
                 count = count + 1;
             }
             Inquiry theInquiry=null;
             String choice = theView.getInput("Please input the number of the " +
                     "inquiry you would like to read.");
-            String chosenTitle = subjects2[Integer.parseInt(choice) - 1];
+            String chosenTitle = subjects.get(Integer.parseInt(choice) - 1);
             boolean response = false;
             boolean response2 = false;
-            while (colInquiries.iterator().hasNext()) {
-                Inquiry inquiry = colInquiries.iterator().next();
-
+            for (Inquiry element : colInquiries) {
+                Inquiry inquiry = element;
                 if (chosenTitle.equals(inquiry.getSubject())) {
                     theView.displayInquiry(inquiry);
                     theInquiry = inquiry;
