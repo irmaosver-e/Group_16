@@ -140,7 +140,7 @@ public class InquirerController extends Controller{
     public void contactStaff() {
         String inquirerEmail;
         // Checking if user is logged in
-        if (sharedCont.getCurrentUser() != null){
+        if (sharedCont.getCurrentUser() instanceof AuthenticatedUser){
             inquirerEmail = ((AuthenticatedUser)this.sharedCont.getCurrentUser()).getEmail();
         }
         else {
