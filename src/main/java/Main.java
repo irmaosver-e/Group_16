@@ -20,10 +20,16 @@ public class Main {
         MenuController theMenuController = new MenuController(theSharedContext, theTextUserInterface, theAuthServ, theEmailServ);
 
         boolean run = true;
+
         while(run)
         {
             theMenuController.mainMenu();
+
+            String checkQuit = theTextUserInterface.getInput("press Q to quit");
             System.out.println("\n");
+
+            if (checkQuit.trim().equalsIgnoreCase("Q")) run = false;
+
         }
     }
 

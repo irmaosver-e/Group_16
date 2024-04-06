@@ -33,10 +33,11 @@ public class TestPageSearch {
     void testSearchWithTitle() {
         try {
             Collection<PageSearchResult> results = pageSearch.search("Title 1");
-            assertEquals(1, results.size());
+            assertEquals(1, results.size(), "Expected exactly one search result for query 'Title 1'");
 
             PageSearchResult result = results.iterator().next();
-            assertTrue(result.getFormattedContent().contains("Title: Title 1"));
+            assertTrue(result.getFormattedContent().contains("Title: Title 1"),
+                    "Expected search result to contain title 'Title 1'");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -45,13 +46,12 @@ public class TestPageSearch {
     @Test
     void testSearchWithContent() {
         try {
-            //Collection<PageSearchResult> results = pageSearch.search( "\"Content of page 2\"\"Content of page 1\"");
-            //Collection<PageSearchResult> results = pageSearch.search( "Content \"Content of page 2\" of \"Content of page 1\" page");
-            Collection<PageSearchResult> results = pageSearch.search( "Content of page 2");
-            assertEquals(1, results.size());
+            Collection<PageSearchResult> results = pageSearch.search("Content of page 2");
+            assertEquals(1, results.size(), "Expected exactly one search result for query 'Content of page 2'");
 
             PageSearchResult result = results.iterator().next();
-            assertTrue(result.getFormattedContent().contains("Content: Content of page 2"));
+            assertTrue(result.getFormattedContent().contains("Content: Content of page 2"),
+                    "Expected search result to contain content 'Content of page 2'");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -61,7 +61,7 @@ public class TestPageSearch {
     void testSearchWithNonExistingQuery() {
         try {
             Collection<PageSearchResult> results = pageSearch.search("Non-existing query");
-            assertTrue(results.isEmpty());
+            assertTrue(results.isEmpty(), "Expected no search results for non-existing query");
         } catch (IOException e) {
             e.printStackTrace();
         }
