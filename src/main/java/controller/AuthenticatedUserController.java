@@ -8,7 +8,7 @@ import view.View;
 
 public class AuthenticatedUserController extends Controller {
 
-    protected AuthenticatedUserController(SharedContext sharedCont, View view, AuthenticationService authServ, EmailService emailServ) {
+    public AuthenticatedUserController(SharedContext sharedCont, View view, AuthenticationService authServ, EmailService emailServ) {
         super(sharedCont, view, authServ, emailServ);
     }
 
