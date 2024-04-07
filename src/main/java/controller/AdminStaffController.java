@@ -8,8 +8,11 @@ import view.View;
 
 import java.util.Collection;
 import java.util.Map;
+import java.util.regex.Pattern;
+
 
 public class AdminStaffController extends StaffController{
+
 
     protected AdminStaffController(SharedContext sharedCont, View theView, AuthenticationService authServ,
                                    EmailService emailServ){
@@ -63,8 +66,8 @@ public class AdminStaffController extends StaffController{
             while (recipient==null || problem) {
                 recipient = theView.getInput("Please input the email address " +
                         "of the " +
-                        "person you would like to redirect this email to.");
-
+                        "teaching staff you would like to redirect this email" +
+                        " to.");
                 //send notification to recipient email of redirection
                 String sender = sharedCont.ADMIN_STAFF_EMAIL;
                 int checkSent = emailServ.sendEmail(sender, recipient,
