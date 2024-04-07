@@ -34,7 +34,7 @@ public class FAQSection {
     }
 
 
-    public void addsubSection(FAQSection sub) {
+    public void addSubSection(FAQSection sub) {
         sub.parent = this;
         subSections.add(sub);
     }

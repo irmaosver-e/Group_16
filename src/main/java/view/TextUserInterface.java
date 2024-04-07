@@ -1,9 +1,8 @@
 package view;
 
-import model.FAQ;
-import model.FAQSection;
-import model.Inquiry;
-import model.PageSearchResult;
+import model.*;
+
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Scanner;
 
@@ -56,12 +55,29 @@ public class TextUserInterface implements View{
 
     @Override
     public void displayFAQ(FAQ faq, Boolean includeSections) {
-
+        ArrayList<FAQSection> upperTopics= faq.getFaqSection().getSubSections();
+        int count = 0;
+        while (count<upperTopics.size()) {
+            System.out.println(count + ") " + upperTopics.get(count).getTopic());
+            count=count+1;
+        }
     }
 
     @Override
     public void displayFAQSection(FAQSection faqSection, Boolean includeQuestions) {
-
+        System.out.println("Section: " + faqSection.getTopic());
+        ArrayList<FAQItem> items = faqSection.getFAQItems();
+        ArrayList<FAQSection> subsections = faqSection.getSubSections();
+        int count = 0;
+        while (count<items.size()){
+            System.out.println("Question: " + items.get(count).getQuestion() + "\nAnswer: " + items.get(count).getAnswer());
+            count=count+1;
+        }
+        int secCount = 0;
+        while (secCount<subsections.size()){
+            System.out.println(secCount + ") Subsection: " + subsections.get(secCount).getTopic());
+            secCount = secCount+1;
+        }
     }
 
     @Override

@@ -66,7 +66,7 @@ public class AdminStaffController extends StaffController{
             while (recipient==null || problem) {
                 recipient = theView.getInput("Please input the email address " +
                         "of the " +
-                        "teaching staff you would like to redirect this email" +
+                        "person you would like to redirect this email" +
                         " to.");
                 //send notification to recipient email of redirection
                 String sender = sharedCont.ADMIN_STAFF_EMAIL;
@@ -114,35 +114,6 @@ public class AdminStaffController extends StaffController{
         }
     }
 
-    public void manageFAQ() {
-        FAQSection currentFAQSection = this.sharedCont.getFaq().getFaqSection();
-
-        while (true) {
-            this.theView.displayFAQSection(currentFAQSection, true);
-            this.theView.displayInfo("-1 to Return");
-            this.theView.displayInfo("-2 to add question answer pair");
-            int op = Integer.parseInt(this.theView.getInput("Navigate?"));
-            if (op == -1) { // return to privous layer / cancel
-                if (currentFAQSection.getParent() != null) {
-                    currentFAQSection = currentFAQSection.getParent();
-                    this.theView.displayInfo("Parent topic");
-                } else {
-                    this.theView.displayInfo("You are on the root section, return to menu");
-                    return;
-                }
-            }
-            if (op == -2) { // Add Q-A
-                addFAQItem(currentFAQSection);
-            }
-            try {
-                currentFAQSection = currentFAQSection.getSubSections().get(op);
-                this.theView.displayInfo("Sub topic");
-            } catch (IndexOutOfBoundsException e) {
-                this.theView.displayInfo("invalid index, please enter again");
-            }
-        }
-    }
-
     public void addFAQItem(FAQSection faqSection){
         String question = this.theView.getInput("Question:");
         String answer = this.theView.getInput("Answer:");
@@ -174,7 +145,7 @@ public class AdminStaffController extends StaffController{
             if(!faqSection.getAllSubTopics().contains(topic)){
                 toAddSec = new FAQSection(topic);
                 toAddSec.addItem(question,answer);
-                faqSection.addSubsection(toAddSec);
+                faqSection.addSubSection(toAddSec);
             }else{
                 this.theView.displayWarning("Topic already exist, add to old one.");
                 toAddSec = faqSection.getSubSectionWithTopic(topic);
@@ -191,6 +162,37 @@ public class AdminStaffController extends StaffController{
             }
         }
     }
+
+    public void manageFAQ() {
+        FAQSection currentFAQSection = this.sharedCont.getFaq().getFaqSection();
+
+        while (true) {
+            this.theView.displayFAQSection(currentFAQSection, true);
+            this.theView.displayInfo("-1 to Return");
+            this.theView.displayInfo("-2 to add question answer pair");
+            int op = Integer.parseInt(this.theView.getInput("Navigate?"));
+            if (op == -1) { // return to privous layer / cancel
+                if (currentFAQSection.getParent() != null) {
+                    currentFAQSection = currentFAQSection.getParent();
+                    this.theView.displayInfo("Parent topic");
+                } else {
+                    this.theView.displayInfo("You are on the root section, return to menu");
+                    return;
+                }
+            }
+            if (op == -2) { // Add Q-A
+                addFAQItem(currentFAQSection);
+            }
+            try {
+                currentFAQSection = currentFAQSection.getSubSections().get(op);
+                this.theView.displayInfo("Sub topic");
+            } catch (IndexOutOfBoundsException e) {
+                this.theView.displayInfo("invalid index, please enter again");
+            }
+        }
+    }
+
+
 
 
         public void manageInquiries() {

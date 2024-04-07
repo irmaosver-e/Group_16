@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.io.*;
 import java.net.URISyntaxException;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class TestAnswerInquiry {
@@ -51,11 +51,10 @@ public class TestAnswerInquiry {
         Main.main(new String[0]);
         String[] theOutput = getOutput().split("\r\n");
         int length = theOutput.length;
-        assertEquals("A message should be output that the email was sent.",
-                "\u001B[0mYour email" +
+        assertEquals("\u001B[0mYour email" +
                         " has been sent " +
                         "successfully.",
-                theOutput[length - 3]);
+                theOutput[length - 3], "A message should be output that the email was sent.");
     }
 
     @Test
@@ -73,9 +72,8 @@ public class TestAnswerInquiry {
         Main.main(new String[0]);
         String[] theOutput = getOutput().split("\r\n");
         int length = theOutput.length;
-        assertEquals("A message should be output that the email was sent.",
-                "\u001B[0mYour email has been sent successfully.",
-                theOutput[length - 3]);
+        assertEquals("\u001B[0mYour email has been sent successfully.",
+                theOutput[length - 3], "A message should be output that the email was sent.");
     }
 
     @Test
@@ -110,10 +108,9 @@ public class TestAnswerInquiry {
         Main.main(new String[0]);
         String[] theOutput = getOutput().split("\r\n");
         int length = theOutput.length;
-        assertEquals("A message is output about the email being sent.",
-                "\u001B[0mYour email " +
+        assertEquals("\u001B[0mYour email " +
                         "has been sent successfully.",
-                theOutput[length - 3]);
+                theOutput[length - 3], "A message is output about the email being sent.");
     }
 
     @Test
@@ -133,9 +130,8 @@ public class TestAnswerInquiry {
         Main.main(new String[0]);
         String[] theOutput = getOutput().split("\r\n");
         int length = theOutput.length;
-        assertEquals("A message should be output that the email was sent.",
-                "\u001B[0mYour email has been sent successfully.",
-                theOutput[length - 3]);
+        assertEquals("\u001B[0mYour email has been sent successfully.",
+                theOutput[length - 3], "A message should be output that the email was sent.");
     }
 
     @Test
@@ -151,10 +147,8 @@ public class TestAnswerInquiry {
         Main.main(new String[0]);
         String[] theOutput = getOutput().split("\r\n");
         int length = theOutput.length;
-        assertEquals("A message should be output that no inquiries are " +
-                        "available.","There are currently no " +
-                        "inquiries available.",
-                theOutput[length - 3]);
+        assertEquals("There are currently no inquiries available.",
+                theOutput[length - 3], "A message should be output that no inquiries are available.");
     }
 
     @Test
@@ -171,9 +165,9 @@ public class TestAnswerInquiry {
         Main.main(new String[0]);
         String[] theOutput = getOutput().split("\r\n");
         int length = theOutput.length;
-        assertEquals("A message should be output that no inquiries are " +
-                        "available.","There are currently no " +
+        assertEquals("There are currently no " +
                         "inquiries available.",
-                theOutput[length - 3]);
+                theOutput[length - 3], "A message should be output that no inquiries are " +
+                        "available.");
     }
 }

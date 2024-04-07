@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.io.*;
 import java.net.URISyntaxException;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class TestRedirectInquiry {
@@ -49,12 +49,12 @@ public class TestRedirectInquiry {
         Main.main(new String[0]);
         String[] theOutput = getOutput().split("\r\n");
         int length = theOutput.length;
-        assertEquals("The email should be successfully redirected.","\u001B" +
+        assertEquals("\u001B" +
                         "[0mThe " +
                         "email has successfully " +
                         "been " +
                         "redirected.",
-                theOutput[length-3]);
+                theOutput[length-3], "The email should be successfully redirected.");
     }
 
     @Test
@@ -66,16 +66,16 @@ public class TestRedirectInquiry {
                 "\n0\n0\nMickeyMouseFan\nhappiestplace789\n1\nyes\n1\nno" +
                 "\nyes\n\ndarthvaderfan@hindeburg.ac.uk" +
                 "\nq";
-        provideInput(testInput);1
+        provideInput(testInput);
         Main.main(new String[0]);
         String[] theOutput = getOutput().split("\r\n");
         int length = theOutput.length;
-        assertEquals("The email should be successfully redirected.","\u001B" +
+        assertEquals("\u001B" +
                         "[0mThe " +
                         "email has successfully " +
                         "been " +
                         "redirected.",
-                theOutput[length-3]);
+                theOutput[length-3], "The email should be successfully redirected.");
     }
 
     @Test
@@ -91,12 +91,12 @@ public class TestRedirectInquiry {
         Main.main(new String[0]);
         String[] theOutput = getOutput().split("\r\n");
         int length = theOutput.length;
-        assertEquals("The email should be successfully redirected.","\u001B" +
+        assertEquals("\u001B" +
                         "[0mThe " +
                         "email has successfully " +
                         "been " +
                         "redirected.",
-                theOutput[length-3]);
+                theOutput[length-3], "The email should be successfully redirected.");
     }
 
     @Test
@@ -112,13 +112,12 @@ public class TestRedirectInquiry {
         Main.main(new String[0]);
         String[] theOutput = getOutput().split("\r\n");
         int length = theOutput.length;
-        assertNotEquals("The email should be successfully redirected.",
-                "\u001B" +
+        assertNotEquals("\u001B" +
                         "[0mThe " +
                         "email has successfully " +
                         "been " +
                         "redirected.",
-                theOutput[length-3]);
+                theOutput[length-3],"The email should be successfully redirected.");
     }
 
 

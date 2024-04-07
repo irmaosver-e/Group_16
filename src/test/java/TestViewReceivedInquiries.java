@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.io.*;
 import java.net.URISyntaxException;
 
-import static org.junit.Assert.assertEquals;
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestViewReceivedInquiries {
 
@@ -53,8 +52,8 @@ public class TestViewReceivedInquiries {
         Main.main(new String[0]);
         String[] theOutput = getOutput().split("\r\n");
         int length = theOutput.length;
-        assertEquals("The case where there is one inquiry titles subject","1)" +
-                " subject", theOutput[length-9]);
+        assertEquals("1)" +
+                " subject", theOutput[length-9], "The case where there is one inquiry titles subject");
         assertEquals("Sender: hermionegranger@hindeburg.ac.uk", theOutput[length-7]);
         assertEquals("Subject: subject", theOutput[length-6]);
         assertEquals("Content: content", theOutput[length-5]);
@@ -79,9 +78,8 @@ public class TestViewReceivedInquiries {
         Main.main(new String[0]);
         String[] theOutput = getOutput().split("\r\n");
         int length = theOutput.length;
-        assertEquals("The case where there is one inquiry titled subject.",
-                "1) subject",
-                theOutput[length-8]);
+        assertEquals("1) subject",
+                theOutput[length-8], "The case where there is one inquiry titled subject.");
         assertEquals("Sender: hermionegranger@hindeburg.ac.uk",
                 theOutput[length-6]);
         assertEquals("Subject: subject", theOutput[length-5]);
@@ -98,9 +96,9 @@ public class TestViewReceivedInquiries {
         Main.main(new String[0]);
         String[] theOutput = getOutput().split("\r\n");
         int length = theOutput.length;
-        assertEquals("A message is returned that there are no inquiries " +
-                        "available.", "There are currently no inquiries available.",
-                theOutput[length - 3]);
+        assertEquals("There are currently no inquiries available.",
+                theOutput[length - 3], "A message is returned that there are no inquiries " +
+                        "available.");
     }
 
     @Test
@@ -112,8 +110,9 @@ public class TestViewReceivedInquiries {
         Main.main(new String[0]);
         String[] theOutput = getOutput().split("\r\n");
         int length = theOutput.length;
-        assertEquals("A message is returned that there are no " +
-                        "inquiries.", "There are currently no inquiries available.",
-                theOutput[length - 3]);
+        assertEquals("There are currently no inquiries available.",
+                theOutput[length - 3], "A message is returned that there are " +
+                        "no " +
+                        "inquiries.");
     }
 }

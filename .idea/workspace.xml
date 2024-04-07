@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef464a3b-6f61-4358-a3f6-1248295e3c12" name="Changes" comment="view Inquiry use case tests 2">
+    <list default="true" id="ef464a3b-6f61-4358-a3f6-1248295e3c12" name="Changes" comment="view Inquiry use case tests 3">
+      <change afterPath="$PROJECT_DIR$/src/test/java/TestAddFAQ.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdminStaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AdminStaffController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/FAQSection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/FAQSection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/TextUserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/TextUserInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/TestAnswerInquiry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestAnswerInquiry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/TestRedirectInquiry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestRedirectInquiry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/TestViewReceivedInquiries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestViewReceivedInquiries.java" afterDir="false" />
@@ -61,7 +65,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestAnswerInquiry">
+  <component name="RunManager" selected="JUnit.TestRedirectInquiry">
     <configuration name="Build Index" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.apache.lucene.demo.IndexFiles" />
       <module name="SEPP_CW3" />
@@ -86,6 +90,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SystemTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEPP_CW3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SystemTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test Lucene Core API" type="JUnit" factoryName="JUnit">
       <module name="SEPP_CW3" />
       <option name="PACKAGE_NAME" value="" />
@@ -96,31 +109,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestAnswerInquiry" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestLogout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SEPP_CW3" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestAnswerInquiry" />
+      <option name="MAIN_CLASS_NAME" value="TestLogout" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestAnswerInquiry.inquiryIsDeletedAdmin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestPageSearch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SEPP_CW3" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestAnswerInquiry" />
-      <option name="METHOD_NAME" value="inquiryIsDeletedAdmin" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestAnswerInquiry.inquiryIsDeletedTeaching" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SEPP_CW3" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestAnswerInquiry" />
-      <option name="METHOD_NAME" value="inquiryIsDeletedTeaching" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="TestPageSearch" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -134,11 +136,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestViewReceivedInquiries" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestRedirectInquiry.testMainSuccessAdminRedirects" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SEPP_CW3" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestViewReceivedInquiries" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="TestRedirectInquiry" />
+      <option name="METHOD_NAME" value="testMainSuccessAdminRedirects" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -148,19 +151,19 @@
       <item itemvalue="Application.Search Index" />
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.Test Lucene Core API" />
-      <item itemvalue="JUnit.TestAnswerInquiry" />
-      <item itemvalue="JUnit.TestAnswerInquiry.inquiryIsDeletedAdmin" />
-      <item itemvalue="JUnit.TestAnswerInquiry.inquiryIsDeletedTeaching" />
       <item itemvalue="JUnit.TestRedirectInquiry" />
-      <item itemvalue="JUnit.TestViewReceivedInquiries" />
+      <item itemvalue="JUnit.SystemTests" />
+      <item itemvalue="JUnit.TestLogout" />
+      <item itemvalue="JUnit.TestPageSearch" />
+      <item itemvalue="JUnit.TestRedirectInquiry.testMainSuccessAdminRedirects" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestAnswerInquiry" />
-        <item itemvalue="JUnit.TestViewReceivedInquiries" />
         <item itemvalue="JUnit.TestRedirectInquiry" />
-        <item itemvalue="JUnit.TestAnswerInquiry.inquiryIsDeletedTeaching" />
-        <item itemvalue="JUnit.TestAnswerInquiry.inquiryIsDeletedAdmin" />
+        <item itemvalue="JUnit.TestLogout" />
+        <item itemvalue="JUnit.TestRedirectInquiry.testMainSuccessAdminRedirects" />
+        <item itemvalue="JUnit.SystemTests" />
+        <item itemvalue="JUnit.TestPageSearch" />
       </list>
     </recent_temporary>
   </component>
@@ -429,7 +432,14 @@
       <option name="project" value="LOCAL" />
       <updated>1712495498035</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="view Inquiry use case tests 3">
+      <created>1712496450159</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1712496450159</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -468,17 +478,7 @@
     <MESSAGE value="more tests added for mock email" />
     <MESSAGE value="view Inquiry use case tests" />
     <MESSAGE value="view Inquiry use case tests 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="view Inquiry use case tests 2" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/view/TextUserInterface.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="view Inquiry use case tests 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="view Inquiry use case tests 3" />
   </component>
 </project>
