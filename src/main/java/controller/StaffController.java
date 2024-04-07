@@ -31,7 +31,7 @@ public class StaffController extends Controller{
 
         String content = null;
 
-        while (content == null) {
+        while (content == null || content=="") {
             content = theView.getInput("Input the content of this email.");
         }
         int success = emailServ.sendEmail(currentUser.getEmail(),

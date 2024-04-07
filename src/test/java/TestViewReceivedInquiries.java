@@ -1,16 +1,9 @@
-import controller.Controller;
-import controller.StaffController;
-import external.AuthenticationService;
-import external.EmailService;
 import external.MockAuthenticationService;
 import external.MockEmailService;
-import model.Inquiry;
 import model.SharedContext;
-import model.User;
 import org.json.simple.parser.ParseException;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import view.TextUserInterface;
@@ -22,7 +15,7 @@ import java.net.URISyntaxException;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class ViewReceivedInquiries {
+public class TestViewReceivedInquiries {
 
     private static SharedContext sharedCont;
     private static TextUserInterface textUserInt;
@@ -65,7 +58,7 @@ public class ViewReceivedInquiries {
     }
 
     @Test
-    public void mainSuccessScenarioAdmin() throws URISyntaxException,
+    public void testMainSuccessScenarioAdmin() throws URISyntaxException,
             IOException, ParseException {
         setUpOutput();
         final String testInput = "0\nHermioneGranger\nmagicwand123\n3" +
@@ -76,49 +69,22 @@ public class ViewReceivedInquiries {
         Main.main(new String[0]);
         String[] theOutput = getOutput().split("\r\n");
         int length = theOutput.length;
+        assertEquals("The case where there is one inquiry titles subject","1)" +
+                " subject", theOutput[length-9]);
+        assertEquals("Sender: hermionegranger@hindeburg.ac.uk", theOutput[length-7]);
+        assertEquals("Subject: subject", theOutput[length-6]);
+        assertEquals("Content: content", theOutput[length-5]);
         assertEquals("Would you like to respond to this inquiry?",
                 theOutput[length - 4]);
         assertEquals("Would you like to redirect this inquiry?",
                 theOutput[length - 3]);
-        assertEquals("press Q to quit",theOutput[length - 2]);
     }
 
-    @Test
-    public void mainSuccessAdminAnswers() throws URISyntaxException, IOException, ParseException {
-        setUpOutput();
-        final String testInput = "0\nHermioneGranger\nmagicwand123\n3" +
-                "\nsubject\ncontent\n " +
-                "\n0\n0\nMickeyMouseFan\nhappiestplace789\n1\nyes\n1\nyes" +
-                "\ncontent" +
-                "\nq";
-        provideInput(testInput);
-        Main.main(new String[0]);
-        String[] theOutput = getOutput().split("\r\n");
-        int length = theOutput.length;
-        assertEquals("\u001B[0mYour email has been sent successfully.",
-                theOutput[length-3]);
-        assertEquals("press Q to quit", theOutput[length-2]);
-    }
+
 
     @Test
-    public void mainSuccessAdminRedirects() throws URISyntaxException, IOException, ParseException {
-        setUpOutput();
-        final String testInput = "0\nHermioneGranger\nmagicwand123\n3" +
-                "\nsubject\ncontent\n " +
-                "\n0\n0\nMickeyMouseFan\nhappiestplace789\n1\nyes\n1\nno" +
-                "\nyes\npikachufan23@hindeburg.ac.uk" +
-                "\nq";
-        provideInput(testInput);
-        Main.main(new String[0]);
-        String[] theOutput = getOutput().split("\r\n");
-        int length = theOutput.length;
-        assertEquals("\u001B[0mThe email has successfully been redirected.",
-                theOutput[length-3]);
-        assertEquals("press Q to quit", theOutput[length-2]);
-    }
-
-    @Test
-    public void mainSuccessScenarioTeachingNoAnswer() throws URISyntaxException, IOException, ParseException {
+    public void testMainSuccessScenarioTeaching() throws URISyntaxException,
+            IOException, ParseException {
         setUpOutput();
         final String testInput = "0\nHermioneGranger\nmagicwand123\n3" +
                 "\nsubject\ncontent\n " +
@@ -129,26 +95,41 @@ public class ViewReceivedInquiries {
         Main.main(new String[0]);
         String[] theOutput = getOutput().split("\r\n");
         int length = theOutput.length;
+        assertEquals("The case where there is one inquiry titled subject.",
+                "1) subject",
+                theOutput[length-8]);
+        assertEquals("Sender: hermionegranger@hindeburg.ac.uk",
+                theOutput[length-6]);
+        assertEquals("Subject: subject", theOutput[length-5]);
+        assertEquals("Content: content", theOutput[length-4]);
         assertEquals("Would you like to respond to this inquiry?", theOutput[length - 3]);
-        assertEquals("press Q to quit",theOutput[length - 2]);
     }
 
     @Test
-    public void mainSuccessScenarioTeachingAnswers() throws URISyntaxException,
+    public void testNoInquiriesAvailableAdmin() throws URISyntaxException,
             IOException, ParseException {
         setUpOutput();
-        final String testInput = "0\nHermioneGranger\nmagicwand123\n3" +
-                "\nsubject\ncontent\n " +
-                "\n0\n0\nBatmanFanatic\ndarkknight2020\n1\nyes\n1\nno\nyes" +
-                "\npikachufan23@hindeburg.ac.uk\n \n0\n " +
-                "\n0\nPikachuFan23\nthunderbolt456\n1\nyes\n1\nyes\ncontent" +
-                "\nq";
+        final String testInput = "0\nMickeyMouseFan\nhappiestplace789\n1\nyes\nq";
         provideInput(testInput);
         Main.main(new String[0]);
         String[] theOutput = getOutput().split("\r\n");
         int length = theOutput.length;
-        assertEquals("\u001B[0mYour email has been sent successfully.", theOutput[length - 3]);
-        assertEquals("press Q to quit",theOutput[length - 2]);
+        assertEquals("A message is returned that there are no inquiries " +
+                        "available.", "There are currently no inquiries available.",
+                theOutput[length - 3]);
     }
 
+    @Test
+    public void testNoInquiriesAvailableTeaching() throws URISyntaxException,
+            IOException, ParseException {
+        setUpOutput();
+        final String testInput = "0\nPikachuFan23\nthunderbolt456\n1\nyes\nq";
+        provideInput(testInput);
+        Main.main(new String[0]);
+        String[] theOutput = getOutput().split("\r\n");
+        int length = theOutput.length;
+        assertEquals("A message is returned that there are no " +
+                        "inquiries.", "There are currently no inquiries available.",
+                theOutput[length - 3]);
+    }
 }
