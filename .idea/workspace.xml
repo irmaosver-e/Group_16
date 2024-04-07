@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef464a3b-6f61-4358-a3f6-1248295e3c12" name="Changes" comment="view Inquiry use case tests">
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestAnswerInquiry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestRedirectInquiry.java" afterDir="false" />
+    <list default="true" id="ef464a3b-6f61-4358-a3f6-1248295e3c12" name="Changes" comment="view Inquiry use case tests 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdminStaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AdminStaffController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/StaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/StaffController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ViewReceivedInquiries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestViewReceivedInquiries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestAnswerInquiry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestAnswerInquiry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestRedirectInquiry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestRedirectInquiry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestViewReceivedInquiries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestViewReceivedInquiries.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +61,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestRedirectInquiry">
+  <component name="RunManager" selected="JUnit.TestAnswerInquiry">
     <configuration name="Build Index" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.apache.lucene.demo.IndexFiles" />
       <module name="SEPP_CW3" />
@@ -158,9 +156,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestRedirectInquiry" />
-        <item itemvalue="JUnit.TestViewReceivedInquiries" />
         <item itemvalue="JUnit.TestAnswerInquiry" />
+        <item itemvalue="JUnit.TestViewReceivedInquiries" />
+        <item itemvalue="JUnit.TestRedirectInquiry" />
         <item itemvalue="JUnit.TestAnswerInquiry.inquiryIsDeletedTeaching" />
         <item itemvalue="JUnit.TestAnswerInquiry.inquiryIsDeletedAdmin" />
       </list>
@@ -424,7 +422,14 @@
       <option name="project" value="LOCAL" />
       <updated>1712482051614</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="view Inquiry use case tests 2">
+      <created>1712495498035</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1712495498035</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -462,7 +467,8 @@
     <MESSAGE value="test added for mock email" />
     <MESSAGE value="more tests added for mock email" />
     <MESSAGE value="view Inquiry use case tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="view Inquiry use case tests" />
+    <MESSAGE value="view Inquiry use case tests 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="view Inquiry use case tests 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

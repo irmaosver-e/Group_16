@@ -1,35 +1,19 @@
-import external.MockAuthenticationService;
-import external.MockEmailService;
-import model.SharedContext;
+
 import org.json.simple.parser.ParseException;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.jupiter.api.BeforeAll;
+
 import org.junit.jupiter.api.Test;
-import view.TextUserInterface;
-import view.View;
+
 
 import java.io.*;
 import java.net.URISyntaxException;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
 
 public class TestViewReceivedInquiries {
 
-    private static SharedContext sharedCont;
-    private static TextUserInterface textUserInt;
-    private static MockAuthenticationService authServ;
-    private static MockEmailService emailServ;
-    private static View theView;
-
-    @BeforeAll
-    public static void setUp() throws URISyntaxException, IOException, ParseException {
-        emailServ = new MockEmailService();
-        sharedCont = new SharedContext();
-        authServ = new MockAuthenticationService();
-        textUserInt = new TextUserInterface();
-    }
 
     private final InputStream systemIn = System.in;
     private final PrintStream systemOut = System.out;
