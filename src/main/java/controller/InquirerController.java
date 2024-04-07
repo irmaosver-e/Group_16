@@ -3,6 +3,7 @@ package controller;
 import external.AuthenticationService;
 import external.EmailService;
 import model.*;
+import org.apache.lucene.queryparser.classic.ParseException;
 import view.View;
 
 import java.io.IOException;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class InquirerController extends Controller{
     protected InquirerController(SharedContext sharedCont, View theView, AuthenticationService authServ, EmailService emailServ) {
@@ -135,8 +137,6 @@ public class InquirerController extends Controller{
     }
 
 
-
-
     public void contactStaff() {
         String inquirerEmail;
         // Checking if user is logged in
@@ -184,32 +184,33 @@ public class InquirerController extends Controller{
                     }
                 }
             }
-            Collection<PageSearchResult> results;
-            try {
-                // Perform page search using availablePages
-                PageSearch pageSearch = new PageSearch(availablePages);
-                results = pageSearch.search(searchQuery);
-            } catch (IOException e) {
-                // Display exception if an IO error occurs during the search
-                theView.displayException(e);
-                return;
-            }
-            // Limit the number of search results to 4
-            if (results.size() > 4) {
-                results = (Collection<PageSearchResult>) results.stream().limit(4);
-            }
+        }
+        Collection<PageSearchResult> results;
+        try {
+            // Perform page search using availablePages
+            PageSearch pageSearch = new PageSearch(availablePages);
+            results = pageSearch.search(searchQuery);
+        } catch (IOException e) {
+            // Display exception if an IO error occurs during the search
+            theView.displayException(e);
+            return;
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        // Limit the number of search results to 4
+        if (results.size() > 4) {
+            results = results.stream().limit(4).collect(Collectors.toList());
+        }
 
+        // Display search results to the user
+        if(results.size() > 0)
+        {
             // Display search results to the user
             theView.displaySearchResults(results);
-            if(results.size() > 0)
-            {
-                // Display search results to the user
-                theView.displaySearchResults(results);
-            }
-            else
-            {
-                theView.displayInfo("no results");
-            }
+        }
+        else
+        {
+            theView.displayInfo("no results");
         }
     }
 
