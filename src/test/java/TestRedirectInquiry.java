@@ -66,7 +66,7 @@ public class TestRedirectInquiry {
                 "\n0\n0\nMickeyMouseFan\nhappiestplace789\n1\nyes\n1\nno" +
                 "\nyes\n\ndarthvaderfan@hindeburg.ac.uk" +
                 "\nq";
-        provideInput(testInput);
+        provideInput(testInput);1
         Main.main(new String[0]);
         String[] theOutput = getOutput().split("\r\n");
         int length = theOutput.length;

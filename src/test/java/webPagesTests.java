@@ -1,6 +1,5 @@
 import model.Page;
 import model.PageSearch;
-import model.PageSearchResult;
 import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -9,13 +8,11 @@ import org.junit.jupiter.api.Test;
 
 import java.io.*;
 import java.net.URISyntaxException;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.Assert.assertTrue;
 
-public class AdminManagePagesSystemTests {
+public class webPagesTests {
 
     private final InputStream originalIn = System.in;
     private final String lineSeparator = System.lineSeparator();
